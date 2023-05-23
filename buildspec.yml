@@ -6,7 +6,7 @@ phases:
       ruby: 3.2
     commands:
       - echo "Installing dependencies..."
-      - rbenv local 3.2.0
+      - rbenv local 3.2
       - gem install bundler
       - bundle install
       - yarn install

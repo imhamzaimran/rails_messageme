@@ -10,15 +10,15 @@ phases:
       - gem install bundler
       - bundle install
 
-      # Install nvm
-      - echo "Installing NVM..."
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+      # # Install nvm
+      # - echo "Installing NVM..."
+      # - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
+      # - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
-      # Install Node.js using nvm
-      - echo "Installing Node JS..."
-      - nvm install 14
-      - nvm use 14
+      # # Install Node.js using nvm
+      # - echo "Installing Node JS..."
+      # - nvm install 14
+      # - nvm use 14
 
       # Install yarn
       - echo "Installing yarn..."
@@ -36,7 +36,7 @@ phases:
   build:
     commands:
       - echo "Running build tasks..."
-      - bundle exec rake db:migrate
+      - rails db:migrate
       # - bundle exec rake assets:precompile
       # Add any additional build tasks specific to your application, such as running tests or generating documentation.
 

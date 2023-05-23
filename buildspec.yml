@@ -6,10 +6,27 @@ phases:
       ruby: 3.2
     commands:
       - echo "Installing dependencies..."
-      - rbenv install 3.2.0 --verbose
-      - rbenv global 3.2.0
+      - rbenv install 3.2.0 && rbenv global 3.2.0
       - gem install bundler
       - bundle install
+
+      # Install nvm
+      - echo "Installing NVM..."
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - source "$NVM_DIR/nvm.sh"
+
+      # Install Node.js using nvm
+      - echo "Installing Node JS..."
+      - nvm install 14
+      - nvm use 14
+
+      # Install yarn
+      - echo "Installing yarn..."
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+      - sudo apt update
+      - sudo apt install yarn
       - yarn install
 
   pre_build:

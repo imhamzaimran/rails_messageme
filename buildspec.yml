@@ -12,9 +12,9 @@ phases:
 
       # Install nvm
       - echo "Installing NVM..."
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-      - export NVM_DIR="$HOME/.nvm"
-      - source "$NVM_DIR/nvm.sh"
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+      - source ~/.bashrc
 
       # Install Node.js using nvm
       - echo "Installing Node JS..."

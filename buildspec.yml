@@ -1,0 +1,33 @@
+version: 0.3
+
+phases:
+  install:
+    runtime-versions:
+      ruby: 3.0.3
+    commands:
+      - echo "Installing dependencies..."
+      - gem install bundler
+      - bundle install --path vendor/bundle
+      - yarn install
+
+  pre_build:
+    commands:
+      - echo "Running pre-build tasks..."
+      # Add any additional pre-build tasks specific to your application, such as database setup or environment configuration.
+
+  build:
+    commands:
+      - echo "Running build tasks..."
+      - bundle exec rake db:migrate
+      # - bundle exec rake assets:precompile
+      # Add any additional build tasks specific to your application, such as running tests or generating documentation.
+
+  post_build:
+    commands:
+      - echo "Running post-build tasks..."
+      # Add any additional post-build tasks specific to your application, such as cleaning up temporary files or generating artifacts.
+
+artifacts:
+  files:
+    - '**/*'
+  name: rails_messageme
